@@ -1,8 +1,14 @@
-# React + Vite
+# React + Apollo + Tailwind client for Ruby on Rails graphql server
+Server: https://github.com/lappi-lynx/rails7-graphql-sandbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Usage
+```
+bun install
+bun run dev
+```
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Index page:
+![Index page](./examples/1.png)
+## Client profile page:
+![Show page](./examples/2.png)
+### TODO: Form for mutations and currency dropdown select for totalEquity field
