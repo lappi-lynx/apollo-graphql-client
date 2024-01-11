@@ -20,6 +20,7 @@ export const GET_CLIENT = gql`
       email
       ssn
       locale
+      totalEquity
       accounts {
         id
         name
