@@ -5,9 +5,8 @@ import rubyLogo from './assets/ruby-nobg.png'
 import apolloLogo from './assets/apollo.png'
 import './App.css'
 
-const gqlServerUrl = 'http://127.0.0.1:3001/graphql';
 const client = new ApolloClient({
-  uri: gqlServerUrl,
+  uri: import.meta.env.ENV_GQL_API_URL,
   cache: new InMemoryCache(),
 });
 
