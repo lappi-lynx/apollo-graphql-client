@@ -10,5 +10,6 @@ bun run dev
 ## Index page:
 ![Index page](./examples/1.png)
 ## Client profile page:
+Currency dropdown allows to select currency for account total equity and recalculate it on-the-fly.
 ![Show page](./examples/2.png)
-### TODO: Form for mutations and currency dropdown select for totalEquity field
+### TODO: Form for mutations
