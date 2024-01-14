@@ -13,14 +13,14 @@ export const GET_CLIENTS = gql`
 `;
 
 export const GET_CLIENT = gql`
-  query GetClient($clientId: ID!) {
+  query GetClient($clientId: ID!, $currency: String) {
     client(id: $clientId) {
       id
       fullName
       email
       ssn
       locale
-      totalEquity
+      totalEquity(currency: $currency)
       accounts {
         id
         name

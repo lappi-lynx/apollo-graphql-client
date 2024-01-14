@@ -4,17 +4,22 @@ import { GET_CLIENT } from "../graphql/queries";
 import PropTypes from 'prop-types';
 
 function FetchClient({ clientId }) {
+  const [client, setClient] = useState({});
+  const [currency, setCurrency] = useState('CHF');
   const { error, loading, data } = useQuery(GET_CLIENT, {
     skip: !clientId,
-    variables: { clientId },
+    variables: { clientId, currency },
   });
-  const [client, setClient] = useState({});
 
   useEffect(() => {
     if (data) {
       setClient(data.client);
     }
   }, [data, clientId]);
+
+  const handleCurrencyChange = (e) => {
+    setCurrency(e.target.value);
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : { error.message }</p>;
@@ -28,8 +33,16 @@ function FetchClient({ clientId }) {
         { client.locale &&
           <p><strong>Locale:</strong> { client.locale }</p>
         }
-        {/* TODO: Add currency dropdown select */}
-        <p className="bg-clip-padding p-2 bg-sky-800 border-4 border-sky-300 border-dashed"><strong>Total equity:</strong> { client.totalEquity } CHF</p>
+        <div className="bg-clip-padding p-2 bg-sky-800 border-4 border-sky-300 border-dashed flex">
+          <div><strong>Total equity: </strong>
+            { client.totalEquity }
+            <select className="ml-2" id="currency-select" value={ currency } onChange={ handleCurrencyChange }>
+              <option value="CHF">CHF</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div>
         <h3 className="text-xl font-bold mb-3">Investing Accounts</h3>
