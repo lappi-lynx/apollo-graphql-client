@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.9",
+    "@reduxjs/toolkit": "^2.0.1",
     "autoprefixer": "^10.4.16",
     "graphql": "^16.8.1",
     "postcss": "^8.4.33",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "redux": "^5.0.1",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {

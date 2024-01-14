@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CLIENT } from "../graphql/queries";
 import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 
 function FetchClient({ clientId }) {
+  const dispatch = useDispatch();
+  const currency = useSelector(state => state.currency.selectedCurrency);
   const [client, setClient] = useState({});
-  const [currency, setCurrency] = useState('CHF');
   const { error, loading, data } = useQuery(GET_CLIENT, {
     skip: !clientId,
     variables: { clientId, currency },
@@ -18,7 +20,7 @@ function FetchClient({ clientId }) {
   }, [data, clientId]);
 
   const handleCurrencyChange = (e) => {
-    setCurrency(e.target.value);
+    dispatch({ type: 'SET_CURRENCY', payload: e.target.value });
   };
 
   if (loading) return <p>Loading...</p>;
