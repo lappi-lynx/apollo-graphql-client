@@ -19,7 +19,7 @@ function FetchClients() {
 
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : { error.message }</p>;
+  if (error) return <p>Error: { error.message }. API provider is down due to Heroku pricing policy. Please ask the owner to run it first.</p>;
 
   return (
     <>
